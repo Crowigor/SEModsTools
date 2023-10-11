@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<Extern href="stdidcmd.h" />
+	<Extern href="vsshlids.h" />
+	<Commands package="guidSEModsToolsPackage">
+		<Buttons>
+			<Button guid="guidSEModsToolsPackageCmdSet" id="cmdidPushCommand" priority="0x0100" type="Button">
+				<Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_BUILD" />
+				<Strings>
+					<ButtonText>SEModsTools: Push</ButtonText>
+				</Strings>
+			</Button>
+			<Button guid="guidSEModsToolsPackageCmdSet" id="cmdidForcePushCommand" priority="0x0100" type="Button">
+				<Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_BUILD" />
+				<Strings>
+					<ButtonText>SEModsTools: Force Push</ButtonText>
+				</Strings>
+			</Button>
+		</Buttons>		
+	</Commands>
+	<Symbols>
+		<GuidSymbol value="{a96ba491-589b-4761-87ae-a2749ec3e1dd}" name="guidSEModsToolsPackage" />
+		<GuidSymbol value="{9657cb9f-323b-4e54-ba7a-00b32cf4cecb}" name="guidSEModsToolsPackageCmdSet">
+			<IDSymbol value="256" name="cmdidPushCommand" />
+			<IDSymbol value="512" name="cmdidForcePushCommand" />
+		</GuidSymbol>
+	</Symbols>
+</CommandTable>

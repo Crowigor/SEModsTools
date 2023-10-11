@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+	<TemplateData>
+		<Name>SEModTemplate</Name>
+		<Description>Space Engineers mod template</Description>
+		<Icon>SEModTemplate.ico</Icon>
+		<ProjectType>CSharp</ProjectType>
+		<LanguageTag>csharp</LanguageTag>
+		<RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+		<SortOrder>1000</SortOrder>
+		<TemplateID>e4195b6a-fffe-4be3-82a9-000380d51824</TemplateID>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>SEModTemplate</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+			<Folder Name="Data">
+				<Folder Name="Localization">
+					<ProjectItem ReplaceParameters="true" TargetFileName="MyTexts.resx">MyTexts.resx</ProjectItem>
+				</Folder>
+				<Folder Name="Scripts">
+					<Folder Name="ModName" TargetFolderName="$SEModsToolsModName$">
+						<Folder Name="Blocks">
+							<ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="MyFirstBlock.cs">MyFirstBlock.cs</ProjectItem>
+						</Folder>
+					</Folder>
+				</Folder>
+				<ProjectItem ReplaceParameters="true" TargetFileName="CubeBlocks.sbc">CubeBlocks.sbc</ProjectItem>
+			</Folder>
+			<Folder Name="Models" TargetFolderName="Models"/>
+			<Folder Name="Textures" TargetFolderName="Textures"/>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>SEModsTools, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=null</Assembly>
+		<FullClassName>SEModsTools.Services.TemplatesWizard</FullClassName>
+	</WizardExtension>
+</VSTemplate>

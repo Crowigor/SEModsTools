@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEModsTools", "SEModsTools.csproj", "{92D384D7-DFAB-4D93-BEA4-A7CD6748F796}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEModTemplate", "..\SEModTemplate\SEModTemplate.csproj", "{8DB8DD46-84B3-4903-912A-09B73F9F13B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|arm64 = Debug|arm64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|arm64 = Release|arm64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92D384D7-DFAB-4D93-BEA4-A7CD6748F796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D384D7-DFAB-4D93-BEA4-A7CD6748F796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D384D7-DFAB-4D93-BEA4-A7CD6748F796}.Debug|arm64.ActiveCfg = Debug|arm64
+		{92D384D7-DFAB-4D93-BEA4-A7CD6748F796}.Debug|arm64.Build.0 = Debug|arm64
+		{92D384D7-DFAB-4D93-BEA4-A7CD6748F796}.Debug|x86.ActiveCfg = Debug|x86
+		{92D384D7-DFAB-4D93-BEA4-A7CD6748F796}.Debug|x86.Build.0 = Debug|x86
+		{92D384D7-DFAB-4D93-BEA4-A7CD6748F796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D384D7-DFAB-4D93-BEA4-A7CD6748F796}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92D384D7-DFAB-4D93-BEA4-A7CD6748F796}.Release|arm64.ActiveCfg = Release|arm64
+		{92D384D7-DFAB-4D93-BEA4-A7CD6748F796}.Release|arm64.Build.0 = Release|arm64
+		{92D384D7-DFAB-4D93-BEA4-A7CD6748F796}.Release|x86.ActiveCfg = Release|x86
+		{92D384D7-DFAB-4D93-BEA4-A7CD6748F796}.Release|x86.Build.0 = Release|x86
+		{8DB8DD46-84B3-4903-912A-09B73F9F13B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DB8DD46-84B3-4903-912A-09B73F9F13B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DB8DD46-84B3-4903-912A-09B73F9F13B4}.Debug|arm64.ActiveCfg = Debug|arm64
+		{8DB8DD46-84B3-4903-912A-09B73F9F13B4}.Debug|arm64.Build.0 = Debug|arm64
+		{8DB8DD46-84B3-4903-912A-09B73F9F13B4}.Debug|x86.ActiveCfg = Debug|x86
+		{8DB8DD46-84B3-4903-912A-09B73F9F13B4}.Debug|x86.Build.0 = Debug|x86
+		{8DB8DD46-84B3-4903-912A-09B73F9F13B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DB8DD46-84B3-4903-912A-09B73F9F13B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DB8DD46-84B3-4903-912A-09B73F9F13B4}.Release|arm64.ActiveCfg = Release|arm64
+		{8DB8DD46-84B3-4903-912A-09B73F9F13B4}.Release|arm64.Build.0 = Release|arm64
+		{8DB8DD46-84B3-4903-912A-09B73F9F13B4}.Release|x86.ActiveCfg = Release|x86
+		{8DB8DD46-84B3-4903-912A-09B73F9F13B4}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7BFEBCE6-9BF5-4D90-9436-B2563C81356B}
+	EndGlobalSection
+EndGlobal
