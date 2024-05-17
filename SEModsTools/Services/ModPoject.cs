@@ -17,7 +17,7 @@ namespace SEModsTools.Services
         public string RootPath { get; set; }
         public string UploadPath { get; set; }
         public bool AutomaticUpload { get; set; }
-        public static string[] AllowedExtensions = { ".cs", ".sbc", ".png", ".mwm", ".dds", ".xml", ".txt", ".resx" };
+        public static string[] AllowedExtensions = { ".cs", ".sbc", ".png", ".mwm", ".dds", ".xml", ".txt", ".resx", ".sbl"};
 
         public ModProject(string file, string modName, string rootFolder, string modsFolder, bool automaticUpload = false)
         {

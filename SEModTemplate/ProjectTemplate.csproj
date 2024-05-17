@@ -101,6 +101,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Include="Data\Localization\MyTexts.resx" />
+		<Compile Include="Data\Localization\MyTexts.sbl" />
 		<Compile Include="Data\Scripts\$SEModsToolsModName$\Blocks\MyFirstBlock.cs" />
 		<Compile Include="Data\CubeBlocks.sbc" />
 	</ItemGroup>

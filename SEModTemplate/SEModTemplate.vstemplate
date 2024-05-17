@@ -18,6 +18,7 @@
 			<Folder Name="Data">
 				<Folder Name="Localization">
 					<ProjectItem ReplaceParameters="true" TargetFileName="MyTexts.resx">MyTexts.resx</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="MyTexts.sbl">MyTexts.sbl</ProjectItem>
 				</Folder>
 				<Folder Name="Scripts">
 					<Folder Name="ModName" TargetFolderName="$SEModsToolsModName$">

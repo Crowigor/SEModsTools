@@ -105,8 +105,8 @@ namespace SEModsTools.Commands
             }
 
             foreach (string file in files)
-            {
-                string fileExtension = Path.GetExtension(file);
+            {             
+                string fileExtension = Path.GetExtension(file).ToLower();
                 if (Array.IndexOf(ModProject.AllowedExtensions, fileExtension) == -1)
                 {
                     continue;
@@ -114,6 +114,7 @@ namespace SEModsTools.Commands
                 try
                 {
                     string copyTo = file.Replace(modProject.RootPath, modProject.UploadPath);
+                    copyTo = copyTo.Replace(Path.GetExtension(file), fileExtension);
                     copyTo = Environment.ExpandEnvironmentVariables(copyTo);
                     string targetFolderPath = Path.GetDirectoryName(copyTo);
                     if (!Directory.Exists(targetFolderPath))
