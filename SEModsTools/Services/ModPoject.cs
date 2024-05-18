@@ -17,7 +17,7 @@ namespace SEModsTools.Services
         public string RootPath { get; set; }
         public string UploadPath { get; set; }
         public bool AutomaticUpload { get; set; }
-        public static string[] AllowedExtensions = { ".cs", ".sbc", ".png", ".mwm", ".dds", ".xml", ".txt", ".resx", ".sbl"};
+        public static string[] AllowedExtensions = { ".cs", ".sbc", ".png", ".mwm", ".dds", ".xml", ".txt", ".resx", ".sbl" };
 
         public ModProject(string file, string modName, string rootFolder, string modsFolder, bool automaticUpload = false)
         {
@@ -46,6 +46,32 @@ namespace SEModsTools.Services
             return new ModProject(fileName, modNameValue, projectRootFolder, modsFolderValue, automaticUploadValue);
         }
 
+        public static void CheckOldProjectParams(string fileName)
+        {
+            try
+            {
+                XDocument projectFile = XDocument.Load(fileName);
+                XNamespace ns = projectFile.Root.GetDefaultNamespace();
+                XElement propertyGroup = projectFile.Root.Descendants(ns + "PropertyGroup")
+                    .FirstOrDefault(e => e.Element(ns + "SEModsToolsModName") != null);
+                if (propertyGroup != null)
+                {
+                    SEModsToolsPackage.PrintMessage($"Find old version params");
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                ThreadHelper.ThrowIfNotOnUIThread();
+                SEModsToolsPackage.PrintMessage($"Error reading csproj: {ex.Message}");
+
+                return;
+            }
+        }
+
         public static void ParseProjectParams(string fileName, ref string modNameValue, ref string modsFolderValue, ref bool automaticUploadValue)
         {
             try
@@ -67,7 +93,6 @@ namespace SEModsTools.Services
                     {
                         modsFolderValue = modsFolderElement.Value;
                     }
-
                     if (automaticUploadElement != null && automaticUploadElement.Value == "true")
                     {
                         automaticUploadValue = true;

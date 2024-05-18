@@ -36,6 +36,9 @@
 		<ErrorReport>prompt</ErrorReport>
 		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>
+	<PropertyGroup>
+		<HelloWorld>test</HelloWorld>
+	</PropertyGroup>
 	<ItemGroup>
 		<Reference Include="netstandard">
 			<HintPath>$(SEModsToolsGameBinPath)\netstandard.dll</HintPath>
@@ -106,4 +109,5 @@
 		<Compile Include="Data\CubeBlocks.sbc" />
 	</ItemGroup>
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+	<Import Project="CustomProperties.targets" />
 </Project>

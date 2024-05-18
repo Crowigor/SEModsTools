@@ -226,9 +226,23 @@ namespace SEModsTools.Services
             }
         }
 
-        private void OnFileChanged(object sender, FileSystemEventArgs e) => OnFileEventListner("changed", e);
+        private void OnFileChanged(object sender, FileSystemEventArgs e)
+        {
+            ThreadHelper.JoinableTaskFactory.Run(async () =>
+            {
+                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+                OnFileEventListner("changed", e);
+            });
+        }
 
-        private void OnFileRenamed(object sender, FileSystemEventArgs e) => OnFileEventListner("rename", e);
+        private void OnFileRenamed(object sender, FileSystemEventArgs e)
+        {
+            ThreadHelper.JoinableTaskFactory.Run(async () =>
+            {
+                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+                OnFileEventListner("rename", e);
+            });
+        }
 
         private void OnFileEventListner(string action, FileSystemEventArgs e)
         {

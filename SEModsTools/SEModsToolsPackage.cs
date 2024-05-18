@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using EnvDTE;
 using System.IO;
 using Microsoft.VisualStudio.Shell.Interop;
-using static Microsoft.VisualStudio.VSConstants;
 
 namespace SEModsTools
 {
