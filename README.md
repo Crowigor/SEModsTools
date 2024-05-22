@@ -27,11 +27,17 @@ There are 3 upload options:
 ### Creating a New Project
 
 1. After installing the extension, select SEModTemplate from the project creation menu.
-   ![create_project_list](/Screenshots/create_project_list.jpg)
+ 
+  ![create_project_list](/Screenshots/create_project_list.jpg)
+
 2. Fill out the form as usual and click `Create`.
-   ![create_project_defualt](/Screenshots/create_project_defualt.jpg)
+ 
+  ![create_project_defualt](/Screenshots/create_project_defualt.jpg)
+
 3. In the window that appears, fill out the form.
-   ![create_project_window](/Screenshots/create_project_window.jpg)
+ 
+  ![create_project_window](/Screenshots/create_project_window.jpg)
+
     * Mod Name - The name of your mod, will be used in the path when uploading files, and also when creating the basic
       file structure.
     * Namespace - The main namespace of the project.
@@ -47,15 +53,20 @@ There are 3 upload options:
 
 If everything is successful, you will see the initialization of the project in the Output SEModsTools. (All tool actions
 will also be displayed in this window.)
+
 ![project](/Screenshots/project.jpg)
 
 ### Changing properties / Connecting to an existing project
 
 1. In Solution Manager, in the project's context menu (right-click on the project, not the solution), select
    SEModsTools > Properties.
-   ![project_menu](/Screenshots/project_menu.jpg)
+ 
+  ![project_menu](/Screenshots/project_menu.jpg)
+
 2. In the window that appears, change/fill in the required fields.
-   ![project_properties](/Screenshots/project_properties.jpg)
+ 
+  ![project_properties](/Screenshots/project_properties.jpg)
+
 3. After filling out, click `Apply`.
 
 If you are connecting SEModsTools to an existing project that did not use it before, restart VS after saving.
