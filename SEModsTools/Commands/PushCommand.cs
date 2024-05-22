@@ -69,7 +69,7 @@ namespace SEModsTools.Commands
             }
 
             SEModsToolsPackage.PrintMessage($"Parse {project.FullName}");
-            ModProject modProject = ModProject.Parse(project.FullName);
+            ModProject modProject = new ModProject(project.FullName);
             if (modProject == null)
             {
                 SEModsToolsPackage.PrintMessage($"Error: Mod project not found in {project.FullName}");
@@ -105,9 +105,9 @@ namespace SEModsTools.Commands
             }
 
             foreach (string file in files)
-            {             
+            {
                 string fileExtension = Path.GetExtension(file).ToLower();
-                if (Array.IndexOf(ModProject.AllowedExtensions, fileExtension) == -1)
+                if (Array.IndexOf(modProject.AllowedExtensions, fileExtension) == -1)
                 {
                     continue;
                 }

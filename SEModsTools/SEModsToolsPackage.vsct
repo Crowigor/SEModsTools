@@ -29,6 +29,12 @@
 					<ButtonText>Force Push</ButtonText>
 				</Strings>
 			</Button>
+			<Button guid="guidSEModsToolsPackageCmdSet" id="cmdidPropertiesCommand" priority="0x0100" type="Button">
+				<Parent guid="guidSEModsToolsPackageCmdSet" id="cmdidCommandsGroup" />
+				<Strings>
+					<ButtonText>Properties</ButtonText>
+				</Strings>
+			</Button>
 		</Buttons>
 	</Commands>
 	<Symbols>
@@ -38,7 +44,7 @@
 			<IDSymbol name="cmdidCommandsGroup" value="0x1150" />
 			<IDSymbol name="cmdidPushCommand" value="256" />
 			<IDSymbol name="cmdidForcePushCommand" value="512" />
-			<IDSymbol name="cmdidEditSettingsCommand" value="768" />
+			<IDSymbol name="cmdidPropertiesCommand" value="768" />
 		</GuidSymbol>
 	</Symbols>
 </CommandTable>

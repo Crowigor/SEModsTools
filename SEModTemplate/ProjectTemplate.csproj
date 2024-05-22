@@ -8,15 +8,16 @@
 		<ProjectGuid>$guid1$</ProjectGuid>
 		<OutputType>Library</OutputType>
 		<AppDesignerFolder>Properties</AppDesignerFolder>
-		<RootNamespace>$SEModsToolsNamespace$</RootNamespace>
+		<RootNamespace>$RootNamespace$</RootNamespace>
 		<AssemblyName>$safeprojectname$</AssemblyName>
 		<TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>
 		<FileAlignment>512</FileAlignment>
 	</PropertyGroup>
 	<PropertyGroup>
-		<SEModsToolsGameBinPath>$SEModsToolsGameBinPath$</SEModsToolsGameBinPath>
 		<SEModsToolsModName>$SEModsToolsModName$</SEModsToolsModName>
+		<SEModsToolsGameBinPath>$SEModsToolsGameBinPath$</SEModsToolsGameBinPath>
 		<SEModsToolsModsFolder>$SEModsToolsModsFolder$</SEModsToolsModsFolder>
+		<SEModsToolsAllowedExtensions>$SEModsToolsAllowedExtensions$</SEModsToolsAllowedExtensions>
 		<SEModsToolsAutomaticUpload>$SEModsToolsAutomaticUpload$</SEModsToolsAutomaticUpload>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

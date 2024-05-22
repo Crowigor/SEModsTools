@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VRage.Game.Components;
 
-namespace $SEModsToolsNamespace$.Blocks
+namespace $RootNamespace$.Blocks
 {
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_MyProgrammableBlock), false, "MY_BlockSubType")]
     public class MyFirstBlock : MyGameLogicComponent

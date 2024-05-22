@@ -16,7 +16,7 @@ namespace SEModsTools.Services
 {
     class ProjectsWatcher
     {
-        private static Dictionary<string, ModProject> Projects = new Dictionary<string, ModProject>();
+        public static Dictionary<string, ModProject> Projects = new Dictionary<string, ModProject>();
         private static Dictionary<string, string> Files = new Dictionary<string, string>();
         private static Dictionary<string, string> Folders = new Dictionary<string, string>();
         private static Dictionary<string, FileSystemWatcher> Watchers = new Dictionary<string, FileSystemWatcher>();
@@ -46,11 +46,11 @@ namespace SEModsTools.Services
                 OnAddProject(project);
             }
         }
-
+       
         private void OnAddProject(Project project)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            ProgressPorject(project.FileName);
+            ProgressProject(project.FileName);
         }
 
         private void OnRemoveProject(Project project)
@@ -67,7 +67,7 @@ namespace SEModsTools.Services
             }
         }
 
-        private void ProgressPorject(string fileName, bool force = false)
+        private void ProgressProject(string fileName, bool force = false)
         {
             lock (this)
             {
@@ -91,8 +91,8 @@ namespace SEModsTools.Services
                 {
                     SEModsToolsPackage.PrintMessage($"========== ReInitializing Project  ==========");
                 }
-                SEModsToolsPackage.PrintMessage($"Parce: {fileName}");
 
+                SEModsToolsPackage.PrintMessage($"Parce: {fileName}");
                 DeleteProject(fileName);
 
                 DTE dte = Package.GetGlobalService(typeof(SDTE)) as DTE;
@@ -115,31 +115,39 @@ namespace SEModsTools.Services
                 }
 
                 string projectKey = project.FileName;
-                string projectRootFolder = Path.GetDirectoryName(project.FileName);
 
-                // Parce params
-                string modNameValue = null;
-                string modsFolderValue = null;
-                bool automaticUploadValue = false;
-                ModProject.ParseProjectParams(project.FileName, ref modNameValue, ref modsFolderValue, ref automaticUploadValue);
-                if (modNameValue == null || modsFolderValue == null)
+                // Create project
+                ModProject modProject = new ModProject(project.FileName);
+                if (!modProject.IsModProject || string.IsNullOrEmpty(modProject.ModName) || string.IsNullOrEmpty(modProject.ModsFolder))
                 {
                     if (Projects.ContainsKey(projectKey))
                     {
                         Projects.Remove(projectKey);
                     }
+
+                    SEModsToolsPackage.PrintMessage($"This is not SE Mod project");
                     return;
                 }
+                SEModsToolsPackage.PrintMessage($"File: {modProject.File}");
+                SEModsToolsPackage.PrintMessage($"RootPath: {modProject.RootPath}");
+                SEModsToolsPackage.PrintMessage($"ModName: {modProject.ModName}");
+                SEModsToolsPackage.PrintMessage($"Namespace: {modProject.Namespace}");
+                SEModsToolsPackage.PrintMessage($"GameBinPath: {modProject.GameBinPath}");
+                SEModsToolsPackage.PrintMessage($"ModsFolder: {modProject.ModsFolder}");
+                SEModsToolsPackage.PrintMessage($"UploadPath: {modProject.UploadPath}");
+                SEModsToolsPackage.PrintMessage($"AllowedExtensions: {String.Join(",", modProject.AllowedExtensions)}");
+                SEModsToolsPackage.PrintMessage($"AutomaticUpload: {(modProject.AutomaticUpload ? "yes" : "no")}\n");
 
                 // Add projects resurses
-                List<string> folders = new List<string>() { projectRootFolder };
+                List<string> folders = new List<string>() { modProject.RootPath };
                 List<string> files = new List<string>() { project.FileName };
-                if (automaticUploadValue)
+                if (modProject.AutomaticUpload)
                 {
-                    ModProject.ParseProjectItems(project.ProjectItems, projectRootFolder, ref folders, ref files);
+                    ModProject.ParseProjectItems(project.ProjectItems, modProject.RootPath, ref folders, ref files);
                 }
 
                 // Add folders and watchers
+                SEModsToolsPackage.PrintMessage($"Add files and folders to Watcher");
                 foreach (string folder in folders)
                 {
                     Folders[folder] = projectKey;
@@ -172,8 +180,7 @@ namespace SEModsTools.Services
                 }
 
                 // Add project
-                Projects[project.FileName] = new ModProject(project.FileName, modNameValue, projectRootFolder, modsFolderValue, automaticUploadValue);
-
+                Projects[project.FileName] = modProject;
                 SEModsToolsPackage.PrintMessage($"========== Finish Initializing ==========\n");
             }
         }
@@ -246,7 +253,6 @@ namespace SEModsTools.Services
 
         private void OnFileEventListner(string action, FileSystemEventArgs e)
         {
-
             ThreadHelper.JoinableTaskFactory.Run(async () =>
             {
                 await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
@@ -261,7 +267,7 @@ namespace SEModsTools.Services
 
                 if (Projects.ContainsKey(e.FullPath))
                 {
-                    ProgressPorject(e.FullPath, true);
+                    ProgressProject(e.FullPath, true);
 
                     return;
                 }
@@ -289,7 +295,7 @@ namespace SEModsTools.Services
                 }
 
                 string fileExtension = Path.GetExtension(e.FullPath);
-                if (Array.IndexOf(ModProject.AllowedExtensions, fileExtension) == -1)
+                if (Array.IndexOf(project.AllowedExtensions, fileExtension) == -1)
                 {
                     return;
                 }

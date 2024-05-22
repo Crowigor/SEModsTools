@@ -30,6 +30,7 @@ namespace SEModsTools
             new ProjectsWatcher();
             await Commands.PushCommand.InitializeAsync(this);
             await SEModsTools.Commands.ForcePushCommand.InitializeAsync(this);
+            await SEModsTools.Commands.PropertiesCommand.InitializeAsync(this);
         }
 
         public static IVsOutputWindowPane GetOutputWindow()
